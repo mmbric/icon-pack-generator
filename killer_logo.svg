@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="killer-gradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background Circle (Optional, good for app icons) -->
+  <circle cx="256" cy="256" r="240" fill="url(#killer-gradient)" opacity="0.1" />
+  
+  <!-- Main Icon Shape: Abstract 'IG' (Icon Generator) / Layers -->
+  <g filter="url(#glow)">
+    <!-- Bottom Layer -->
+    <rect x="128" y="128" width="256" height="256" rx="64" fill="url(#killer-gradient)" opacity="0.8" transform="rotate(-10 256 256)" />
+    
+    <!-- Top Layer -->
+    <rect x="128" y="128" width="256" height="256" rx="64" stroke="white" stroke-width="24" fill="none" transform="rotate(10 256 256)" />
+    
+    <!-- Center Spark/Element -->
+    <path d="M256 180 L280 230 L330 256 L280 282 L256 332 L232 282 L182 256 L232 230 Z" fill="white" />
+  </g>
+</svg>
