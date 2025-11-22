@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { ICON_DEFINITIONS } from '../utils/iconConstants';
-import { generateIcon, modifySvgColors } from '../utils/iconGenerator';
+import { generateIcon } from '../utils/iconGenerator';
 import { JSDOM } from 'jsdom';
 
 // Mock browser environment for Canvas API
@@ -21,8 +21,8 @@ global.XMLSerializer = dom.window.XMLSerializer;
 global.btoa = (str) => Buffer.from(str).toString('base64');
 
 // Mock Canvas
-const { createCanvas, loadImage } = require('canvas');
-global.document.createElement = (tagName) => {
+const { createCanvas } = require('canvas');
+global.document.createElement = (tagName: string) => {
   if (tagName === 'canvas') {
     return createCanvas(100, 100);
   }
