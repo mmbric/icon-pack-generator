@@ -17,7 +17,7 @@ function App() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [iconColorOverrides, setIconColorOverrides] = useState<Record<string, { stroke: string; background: string }>>({});
   const [iconPaddingOverrides, setIconPaddingOverrides] = useState<Record<string, number>>({});
-  const [currentTheme, setCurrentTheme] = useState<Theme>('aurora');
+  const [currentTheme, setCurrentTheme] = useState<Theme>('pastel');
 
   // Apply theme class to body
   useEffect(() => {
