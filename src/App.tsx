@@ -140,7 +140,7 @@ function App() {
     <div className="app-container">
       <div className="app-content">
         <header className="app-header">
-          <h1 className="app-title"><img src="killer_logo.svg" alt="Icon Generator" height={50} width={50}/> Icon Generator</h1>
+          <h1 className="app-title">Icon Generator</h1>
           <p className="app-subtitle">Generate all your app icons from a single SVG</p>
         </header>
 
