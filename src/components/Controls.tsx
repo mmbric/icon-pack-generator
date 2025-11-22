@@ -13,6 +13,7 @@ interface ControlsProps {
   onChangeFile: () => void;
   currentTheme: Theme;
   onThemeChange: (theme: Theme) => void;
+  onAddCustomIcon: (width: number, height: number) => void;
 }
 
 export const Controls: React.FC<ControlsProps> = ({
@@ -25,9 +26,20 @@ export const Controls: React.FC<ControlsProps> = ({
   fileName,
   onChangeFile,
   currentTheme,
-  onThemeChange
+  onThemeChange,
+  onAddCustomIcon
 }) => {
   const isTransparent = backgroundColor === 'transparent';
+  const [customWidth, setCustomWidth] = React.useState<string>('100');
+  const [customHeight, setCustomHeight] = React.useState<string>('100');
+
+  const handleAddCustom = () => {
+    const w = parseInt(customWidth);
+    const h = parseInt(customHeight);
+    if (w > 0 && h > 0) {
+      onAddCustomIcon(w, h);
+    }
+  };
 
   return (
     <div className="controls-container glass-panel">
@@ -103,6 +115,32 @@ export const Controls: React.FC<ControlsProps> = ({
               />
               Transparent
             </label>
+          </div>
+        </div>
+
+        <div className="control-group">
+          <label className="control-label">Custom Size</label>
+          <div className="control-inputs custom-size-inputs">
+            <input
+              type="number"
+              value={customWidth}
+              onChange={(e) => setCustomWidth(e.target.value)}
+              placeholder="W"
+              className="size-input"
+              min="1"
+            />
+            <span className="size-separator">×</span>
+            <input
+              type="number"
+              value={customHeight}
+              onChange={(e) => setCustomHeight(e.target.value)}
+              placeholder="H"
+              className="size-input"
+              min="1"
+            />
+            <button onClick={handleAddCustom} className="btn btn-small btn-secondary">
+              Add
+            </button>
           </div>
         </div>
 
